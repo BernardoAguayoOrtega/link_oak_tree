@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Local apps
-    'link_oak_tree',
+    'link_oat',
 ]
 
 MIDDLEWARE = [
