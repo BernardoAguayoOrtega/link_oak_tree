@@ -1,0 +1,10 @@
+<h1 class="text-2xl font-bold text-gray-800">Links</h1>
+<ul class="list-disc pl-5">
+{% for link in links %}
+    <li class="mb-2">
+        <a href="{{ link.url }}" class="text-blue-500 hover:text-blue-700 transition duration-300">{{ link.text }}</a>
+    </li>
+{% empty %}
+    <li class="text-gray-500">No Links Yet.</li>
+{% endfor %}
+</ul>
