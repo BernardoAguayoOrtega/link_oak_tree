@@ -1,10 +1,52 @@
-<h1 class="text-2xl font-bold text-gray-800">Links</h1>
-<ul class="list-disc pl-5">
-{% for link in links %}
-    <li class="mb-2">
-        <a href="{{ link.url }}" class="text-blue-500 hover:text-blue-700 transition duration-300">{{ link.text }}</a>
-    </li>
-{% empty %}
-    <li class="text-gray-500">No Links Yet.</li>
-{% endfor %}
-</ul>
+{% extends 'link_oat/_base.html' %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold text-gray-800">Links</h1>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="min-w-full leading-normal">
+            <thead>
+                <tr>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Text
+                    </th>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        URL
+                    </th>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Profile
+                    </th>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for link in links %}
+                    <tr>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            {{ link.text }}
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <a href="{{ link.url }}" class="text-blue-500 hover:text-blue-700 transition duration-300">
+                                {{ link.url }}
+                            </a>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            {{ link.profile }}
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <a href="" class="text-indigo-600 hover:text-indigo-900">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4" class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            No Links Yet.
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
